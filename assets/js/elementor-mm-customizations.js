@@ -15,6 +15,19 @@
 			$scope.find( '.elementor-search-form__input' ).each( function() {
 				$( this ).after( '<button tabindex="-1" class="screen-reader-text elementor-search-form__submit" type="submit">Submit search</button>' );
 			} );
+
+			/** Disallow focus on searchform fields when lightbox is closed to improve TABs navigation. */
+			$scope.find( '.elementor-search-form__input' ).attr( 'tabindex', '-1' );
+			$scope.find( '.elementor-search-form__toggle' ).on( 'click', function( event ) {
+				if ( $scope.find( '.elementor-search-form__container').hasClass( 'elementor-lightbox' ) ) {
+					$scope.find( '.elementor-search-form__input' ).attr( 'tabindex', '-1' );
+				} else {
+					$scope.find( '.elementor-search-form__input' ).attr( 'tabindex', '0' );
+				}
+			} );
+			$scope.find( '.elementor-search-form__container' ).on( 'click', function( event ) {
+				$scope.find( '.elementor-search-form__input' ).attr( 'tabindex', '-1' );
+			} );
 		} );
 	} );
 } )( jQuery );
