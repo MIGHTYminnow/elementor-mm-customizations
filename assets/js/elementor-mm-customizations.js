@@ -1,4 +1,20 @@
 /**
+ * Icon Box Widgets
+ */
+( function( $ ) {
+
+	/** Remove (empty) link from icon. */
+	$( window ).on( 'elementor/frontend/init', function() {
+		$( '.elementor-widget-icon-box a.elementor-icon' ).each( function() {
+			var $icon = $( this );
+			$icon.after( '<span class="' + $icon.attr( 'class' ) + '">' + $icon.html() + '</a>' );
+			$icon.remove();
+		});
+	} );
+
+})( jQuery );
+
+/**
  * Search Form Widget (Full Screen)
  */
 ( function( $ ) {
