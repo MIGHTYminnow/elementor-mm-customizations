@@ -28,6 +28,60 @@
 			$scope.find( '.elementor-search-form__container' ).on( 'click', function( event ) {
 				$scope.find( '.elementor-search-form__input' ).attr( 'tabindex', '-1' );
 			} );
+
+			/**
+			 * Limit tab navigation to popup (don't allow to focus on elements outside
+			 * the popup using tabs).
+			 * 
+			 * Based on https://hidde.blog/using-javascript-to-trap-focus-in-an-element/
+			 */
+
+			var focusableEls;
+			var firstFocusableEl;
+			var lastFocusableEl;
+
+			function trapFocus(e) {
+				if ( e.originalEvent.key !== 'Tab' ) { 
+					return; 
+				}
+
+				if ( e.originalEvent.shiftKey ) /* shift + tab */ {
+					if (e.target === firstFocusableEl[0]) {
+						lastFocusableEl.focus();
+						e.preventDefault();
+					}
+				} else /* tab */ {
+					if (e.target === lastFocusableEl[0]) {
+						firstFocusableEl.focus();
+						e.preventDefault();
+					}
+				}
+			}
+
+			$scope.find( '.elementor-search-form__toggle' ).on( 'click', function( event ) {
+				$scope.find( '.elementor-search-form__input' ).one( 'focus', function() {
+					$popup = $scope.find( '.elementor-search-form__container' );
+					focusableEls = $popup.find( ':tabbable' );
+					firstFocusableEl = focusableEls.first();  
+					lastFocusableEl = focusableEls.last();
+					$( document ).on( 'keydown', trapFocus );
+					$( document ).on( 'keydown', function( event ) {
+						if ( event.originalEvent.code == 'Enter' && event.target == $scope.find( '.elementor-search-form__input' )[0] ) {
+							$scope.find( 'form' ).submit();
+						}
+					} );
+				} );
+			} );
+
+			$scope.find( '.elementor-search-form__container' ).on( 'click', function( event ) {
+				if ( event.target == $scope.find( '.elementor-search-form__container' )[0] ) {
+					$( document ).off( 'keydown', trapFocus );
+				}
+			} );
+
+			$scope.find( '.dialog-close-button' ).on( 'click', function( event ) {
+				$( document ).off( 'keydown', trapFocus );
+			} );
 		} );
 	} );
 } )( jQuery );
