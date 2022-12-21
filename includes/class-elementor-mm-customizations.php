@@ -13,6 +13,13 @@ class Elementor_MM_Customizations {
 	}
 
 	public function enqueue_assets() {
+		wp_enqueue_style(
+			'elementor-mm-customizations',
+			ELEMENTOR_MM_CUSTOMIZATIONS_URL . 'assets/css/elementor-mm-customizations.css',
+			array(),
+			ELEMENTOR_MM_CUSTOMIZATIONS_VERSION
+		);
+
 		wp_enqueue_script(
 			'elementor-mm-customizations',
 			ELEMENTOR_MM_CUSTOMIZATIONS_URL . 'assets/js/elementor-mm-customizations.js',

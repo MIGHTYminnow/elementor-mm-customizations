@@ -117,6 +117,33 @@
 } )( jQuery );
 
 /**
+ * Toggle Widgets
+ */
+( function( $ ) {
+	$( window ).on( 'elementor/frontend/init', function() {
+		elementorFrontend.hooks.addAction( 'frontend/element_ready/toggle.default', function( $scope ) {
+
+			/** Implement <details> on Elementor Toggle widgets. */
+			$container = $scope.find( '.elementor-widget-container' );
+			$scope.find( '.elementor-toggle-item' ).each( function() {
+				$container.append(
+					'<details>'
+						+ '<summary>'
+							+ $( this ).find( '.elementor-tab-title' ).text()
+						+ '</summary>'
+						+ '<div class="details-content">'
+							+ $( this ).find( '.elementor-tab-content' ).html()
+						+ '</div>'
+					+ '</details>'
+				);
+			} );
+			$scope.find( '.elementor-toggle' ).remove();
+
+		} );
+	} );
+} )( jQuery );
+
+/**
  * Elementor Popups
  */
 ( function( $ ) {

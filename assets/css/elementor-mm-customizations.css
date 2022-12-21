@@ -1,0 +1,29 @@
+/**
+ * Toggle Widgets
+ */
+.elementor-widget-toggle details{
+	border-bottom: 1px solid #d4d4d4;
+}
+.elementor-widget-toggle summary::before{
+	content: "\f0da";
+	margin-right: 0.6em;
+	font-family: FontAwesome;
+}
+.elementor-widget-toggle summary{
+	display: block;
+	padding: 15px;
+	font-weight: 700;
+}
+.elementor-widget-toggle details[open] summary::before{
+	content: "\f0d8";
+}
+.elementor-widget-toggle .details-content{
+	padding: 0 15px;
+}
+.elementor-widget-toggle summary::-webkit-details-marker {
+  display: none;
+}
+.elementor-widget-toggle .details-content a{
+	text-decoration: underline;
+	color: #C64410;
+}
