@@ -140,4 +140,45 @@
 		instance.$element.find( ':tabbable' ).first().focus();
 	} );
 
+	/**
+	 * Limit tab navigation to popup (don't allow to focus on elements outside
+	 * the popup using tabs).
+	 * 
+	 * Based on https://hidde.blog/using-javascript-to-trap-focus-in-an-element/
+	 */
+
+	var focusableEls;
+	var firstFocusableEl;
+	var lastFocusableEl;
+
+	function trapFocus(e) {
+		if ( e.originalEvent.key !== 'Tab' ) { 
+			return; 
+		}
+
+		if ( e.originalEvent.shiftKey ) /* shift + tab */ {
+			if (e.target === firstFocusableEl[0]) {
+				lastFocusableEl.focus();
+				e.preventDefault();
+			}
+		} else /* tab */ {
+			if (e.target === lastFocusableEl[0]) {
+				firstFocusableEl.focus();
+				e.preventDefault();
+			}
+		}
+	}
+
+	$( document ).on( 'elementor/popup/show', ( event, id, instance ) => {
+		$popup = $( '#elementor-popup-modal-' + id );
+		focusableEls = $popup.find( ':tabbable' );
+		firstFocusableEl = focusableEls.first();  
+		lastFocusableEl = focusableEls.last();
+		$( document ).on( 'keydown', trapFocus );
+	} );
+
+	$( document ).on( 'elementor/popup/hide', ( event, id, instance ) => {
+		$( document ).off( 'keydown', trapFocus );
+	} );
+
 } )( jQuery );
