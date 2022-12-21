@@ -126,4 +126,11 @@
 		}
 	} );
 
+	/**
+	 * Set focus on header logo after closing an Elementor Popup.
+	 */
+	$( document ).on( 'elementor/popup/hide', ( event, id, instance ) => {
+		$( '.site-title a' ).focus();
+	} );
+
 } )( jQuery );
