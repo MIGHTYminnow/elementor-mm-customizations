@@ -133,4 +133,11 @@
 		$( '.site-title a' ).focus();
 	} );
 
+	/**
+	 * Set focus on first tabbable element in popup after open it.
+	 */
+	$( document ).on( 'elementor/popup/show', ( event, id, instance ) => {
+		instance.$element.find( ':tabbable' ).first().focus();
+	} );
+
 } )( jQuery );
