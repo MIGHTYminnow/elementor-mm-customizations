@@ -101,3 +101,29 @@
 		} );
 	} );
 } )( jQuery );
+
+/**
+ * Elementor Popups
+ */
+( function( $ ) {
+
+	/**
+	 * Convert popup close button from <div> to <button>.
+	 */
+	$( document ).on( 'elementor/popup/show', ( event, id, instance ) => {
+		$popup = $( '#elementor-popup-modal-' + id );
+
+		if ( ! $popup.hasClass( 'elementor-popup-close-button-replaced' ) ) {
+			$div = $popup.find( '.dialog-close-button' );
+			$div.before( '<button class="' + $div.attr( 'class' ) + '">' + $div.html() + '</button>' );
+			$div.remove();
+
+			$popup.find( '.dialog-close-button' ).on( 'click', function( event ) {
+				elementorFrontend.documentsManager.documents[ id ].getModal().hide();
+			} );
+
+			$popup.addClass( 'elementor-popup-close-button-replaced' );
+		}
+	} );
+
+} )( jQuery );
