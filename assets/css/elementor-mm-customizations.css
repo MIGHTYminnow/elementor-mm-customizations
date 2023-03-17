@@ -1,4 +1,31 @@
 /**
+ * Mobile Navigation
+ */
+.elementor-nav-menu--dropdown .menu-item-has-children{
+	display: flex;
+	flex-wrap: wrap;
+}
+.elementor-nav-menu--dropdown .menu-item-has-children > a{
+	width: calc( 100% - 60px );
+}
+.elementor-nav-menu--dropdown .menu-item-has-children > a span{
+	display: none;
+}
+.elementor-nav-menu--dropdown .submenu-toggle{
+	margin: 0 0 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	background: rgba(48, 37, 37, 0.2);
+	width: 60px;
+	height: 50px;
+}
+.elementor-nav-menu--dropdown .sub-menu{
+	width: 100%;
+}
+
+/**
  * Toggle Widgets
  */
 .elementor-widget-toggle details{
