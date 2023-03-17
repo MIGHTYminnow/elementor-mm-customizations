@@ -26,6 +26,31 @@
 
 				$submenu.attr( 'aria-labelledby', $btn.attr( 'id' ) );
 			} );
+
+			/** Add submenu toggle buttons functionality. */
+			$scope.find( '.elementor-nav-menu--dropdown .submenu-toggle' ).on( 'click', function() {
+				$btn = $( this );
+				$link = $btn.siblings( '.menu-link' ).first();
+				$submenu = $btn.siblings( '.sub-menu' ).first();
+
+				if ( 'false' == $btn.attr( 'aria-expanded' ) ) {
+					$btn.attr( 'aria-label', 'Close ' + $link.text() + ' submenu' );
+					$btn.html( '<i class="fa-solid fa-caret-up"></i>' );
+					$btn.attr( 'aria-expanded', 'true' );
+					$submenu.attr( 'aria-expanded', 'true' );
+					$submenu.attr( 'aria-hidden', 'false' );
+					$submenu.slideDown();
+					$submenu.children().children( 'a' ).attr( 'tabindex', '0' );
+				} else {
+					$btn.attr( 'aria-label', 'Open ' + $link.text() + ' submenu' );
+					$btn.html( '<i class="fa-solid fa-caret-down"></i>' );
+					$btn.attr( 'aria-expanded', 'false' );
+					$submenu.attr( 'aria-expanded', 'false' );
+					$submenu.attr( 'aria-hidden', 'true' );
+					$submenu.slideUp();
+					$submenu.children().children( 'a' ).attr( 'tabindex', '-1' );
+				}
+			} );
 		} );
 	});
 } )( jQuery );
