@@ -8,6 +8,24 @@
 			$btn = $scope.find( '.elementor-menu-toggle' );
 			$btn.before( '<button type="button" class="elementor-menu-toggle" aria-label="Menu Toggle" aria-expanded="false">' + $btn.html() + '</button>' );
 			$btn.remove();
+
+			/** Add toggle buttons for submenus. */
+			$scope.find( '.elementor-nav-menu--dropdown .menu-item-has-children > a' ).each( function() {
+				$link = $( this );
+
+				$( this ).after( '<button class="submenu-toggle" aria-label="Open ' + $link.text() + ' submenu"><i class="fa-solid fa-caret-down"></i></button>' );
+
+				$btn = $link.siblings( '.submenu-toggle' ).first();
+				$submenu = $link.siblings( '.sub-menu' ).first();
+
+				$link.removeAttr( 'aria-controls' );
+				$link.removeAttr( 'aria-expanded' );
+
+				$btn.attr( 'aria-controls', $submenu.attr( 'id' ) );
+				$btn.attr( 'aria-expanded', 'false' );
+
+				$submenu.attr( 'aria-labelledby', $btn.attr( 'id' ) );
+			} );
 		} );
 	});
 } )( jQuery );
