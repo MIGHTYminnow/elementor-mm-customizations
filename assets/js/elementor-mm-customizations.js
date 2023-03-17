@@ -18,7 +18,7 @@
 			$scope.find( '.elementor-nav-menu--dropdown .menu-item-has-children > a' ).each( function() {
 				$link = $( this );
 
-				$( this ).after( '<button class="submenu-toggle" aria-label="Open ' + $link.text() + ' submenu"><i class="fa-solid fa-caret-down"></i></button>' );
+				$( this ).after( '<button class="submenu-toggle" aria-label="Open ' + $link.text() + ' submenu"><i class="eicon-caret-down"></i></button>' );
 
 				$btn = $link.siblings( '.submenu-toggle' ).first();
 				$submenu = $link.siblings( '.sub-menu' ).first();
@@ -40,7 +40,7 @@
 
 				if ( 'false' == $btn.attr( 'aria-expanded' ) ) {
 					$btn.attr( 'aria-label', 'Close ' + $link.text() + ' submenu' );
-					$btn.html( '<i class="fa-solid fa-caret-up"></i>' );
+					$btn.html( '<i class="eicon-caret-up"></i>' );
 					$btn.attr( 'aria-expanded', 'true' );
 					$submenu.attr( 'aria-expanded', 'true' );
 					$submenu.attr( 'aria-hidden', 'false' );
@@ -48,7 +48,7 @@
 					$submenu.children().children( 'a' ).attr( 'tabindex', '0' );
 				} else {
 					$btn.attr( 'aria-label', 'Open ' + $link.text() + ' submenu' );
-					$btn.html( '<i class="fa-solid fa-caret-down"></i>' );
+					$btn.html( '<i class="eicon-caret-down"></i>' );
 					$btn.attr( 'aria-expanded', 'false' );
 					$submenu.attr( 'aria-expanded', 'false' );
 					$submenu.attr( 'aria-hidden', 'true' );
