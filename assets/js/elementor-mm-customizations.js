@@ -1,4 +1,18 @@
 /**
+ * Mobile Navigation
+ */
+( function( $ ) {
+	$( window ).on( 'elementor/frontend/init', function() {
+		elementorFrontend.hooks.addAction( 'frontend/element_ready/nav-menu.default', function( $scope ) {
+			/** Convert menu toggle to <button> */
+			$btn = $scope.find( '.elementor-menu-toggle' );
+			$btn.before( '<button type="button" class="elementor-menu-toggle" aria-label="Menu Toggle" aria-expanded="false">' + $btn.html() + '</button>' );
+			$btn.remove();
+		} );
+	});
+} )( jQuery );
+
+/**
  * Button Widgets
  */
 ( function( $ ) {
