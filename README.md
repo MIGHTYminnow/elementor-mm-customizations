@@ -3,7 +3,7 @@
 List of accessibility enhancements:
 
 ## Mobile Navigation
-- Convert menu toggle to <button>
+- Convert menu toggle to \<button\>.
 - Make parent menu links act as links and not as toggle buttons.
 - Add toggle buttons for submenus.
 
