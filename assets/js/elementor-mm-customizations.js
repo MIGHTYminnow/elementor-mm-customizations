@@ -10,12 +10,9 @@
 			$btn.remove();
 
 			/** Make parent menu links act as links and not as toggle buttons. */
-			$scope.find( '.elementor-nav-menu--dropdown .elementor-nav-menu' ).on( 'click.smapi', function( event, item ) {
-				if ( $( item ).is( '.menu-link' ) ) {
-					window.location.href = item.href;
-					return false;
-				}
-			} );
+			$scope.find( '.menu-item-has-children > a' ).on( 'click', function( event ){
+				event.stopPropagation();
+			});
 
 			/** Add toggle buttons for submenus. */
 			$scope.find( '.elementor-nav-menu--dropdown .menu-item-has-children > a' ).each( function() {
