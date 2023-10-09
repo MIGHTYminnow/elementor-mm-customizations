@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Elementor - MM Customizations
  * Plugin URI: https://github.com/MIGHTYminnow/elementor-mm-customizations
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: MIGHTYminnow
  * Author URI: https://mightyminnow.com
  * Description: Adds accessibility fixes to Elementor.
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'ELEMENTOR_MM_CUSTOMIZATIONS_VERSION' ) ) {
-	define( 'ELEMENTOR_MM_CUSTOMIZATIONS_VERSION', '1.0.0' );
+	define( 'ELEMENTOR_MM_CUSTOMIZATIONS_VERSION', '1.0.1' );
 }
 
 if ( ! defined( 'ELEMENTOR_MM_CUSTOMIZATIONS_PATH' ) ) {
