@@ -8,7 +8,7 @@ List of accessibility enhancements:
 - Add toggle buttons for submenus.
 
 ## Button Widgets
-- Remove role="button" from links on Button Widgets.
+- ~~Remove role="button" from links on Button Widgets.~~ (Already fixed by Elementor).
 
 ## Icon Box Widgets
 - Remove (empty) link from icon.

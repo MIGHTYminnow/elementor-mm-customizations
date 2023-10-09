@@ -61,20 +61,6 @@
 } )( jQuery );
 
 /**
- * Button Widgets
- */
-( function( $ ) {
-
-	/**
-	 * Remove role="button" from links on Button Widgets.
-	 */
-	$( window ).on( 'elementor/frontend/init', function() {
-		$( 'a[role="button"]' ).removeAttr( 'role' );
-	} );
-
-})( jQuery );
-
-/**
  * Icon Box Widgets
  */
 ( function( $ ) {
