@@ -7,8 +7,8 @@ List of accessibility enhancements:
 - Make parent menu links act as links and not as toggle buttons.
 - Add toggle buttons for submenus.
 
-## Button Widgets
-- ~~Remove role="button" from links on Button Widgets.~~ (Already fixed by Elementor).
+## ~~Button Widgets~~ (Already fixed by Elementor).
+- ~~Remove role="button" from links on Button Widgets.~~
 
 ## Icon Box Widgets
 - Remove (empty) link from icon.
@@ -20,7 +20,7 @@ List of accessibility enhancements:
 - Disallow focus on searchform fields when lightbox is closed to improve TABs navigation.
 - Limit tab navigation to popup (don't allow to focus on elements outside the popup using tabs).
 
-## Tabs
+## ~~Tabs~~ (Already fixed by Elementor).
 - ~~Fix the behavior of the Space key on the tabs widget.~~ (Already fixed by Elementor).
 
 ## Toggle
