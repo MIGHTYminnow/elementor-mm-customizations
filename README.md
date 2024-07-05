@@ -31,3 +31,11 @@ List of accessibility enhancements:
 - Set focus on header logo after closing an Elementor Popup.
 - Set focus on first tabbable element in popup after open it.
 - Limit tab navigation to popup (don't allow to focus on elements outside the popup using tabs).
+
+# How to test the plugin
+
+Test each of the features twice:
+
+- With the plugin disabled, to confirm if Elementor has not implemented it yet (if they implemented it, remove the feature).
+
+- With the plugin enabled, to confirm it still works with the latest version.
