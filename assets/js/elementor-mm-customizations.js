@@ -69,7 +69,7 @@
 	$( window ).on( 'elementor/frontend/init', function() {
 		$( '.elementor-widget-icon-box a.elementor-icon' ).each( function() {
 			var $icon = $( this );
-			$icon.after( '<span class="' + $icon.attr( 'class' ) + '">' + $icon.html() + '</a>' );
+			$icon.after( '<span class="' + $icon.attr( 'class' ) + '">' + $icon.html() + '</span>' );
 			$icon.remove();
 		});
 	} );
