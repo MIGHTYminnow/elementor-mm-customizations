@@ -1,3 +1,6 @@
+# THIS PLUGIN WAS ARCHIVED DUE IT WAS NOT IN USE ANYMORE.
+https://app.asana.com/0/0/1207760569488799/1208548905138557/f
+
 # Elementor MM Customizations
 
 List of accessibility enhancements:
